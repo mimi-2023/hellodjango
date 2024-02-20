@@ -1,0 +1,20 @@
+{
+    // コンテナ名
+    "name": "docker-Django",
+    // コンテナ作成に使うdocker-comopseファイルの相対パス
+    "dockerComposeFile": "../docker-compose.yml",
+    // サービス名
+    "service": "app",
+    // コンテナ内のプロジェクトのルートフォルダを指定
+    "workspaceFolder": "/code",
+    // コンテナ停止時のアクション
+    "shutdownAction": "stopCompose",
+    // コンテナに入れるVScodeの拡張機能
+    "customizations": {
+		"vscode": {
+			"extensions": [			
+				"ms-python.python"				
+			]
+		}
+	}
+}
