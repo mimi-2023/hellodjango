@@ -3,7 +3,7 @@
     "name": "docker-Django",
     // コンテナ作成に使うdocker-comopseファイルの相対パス
     "dockerComposeFile": "../docker-compose.yml",
-    // サービス名
+    // サービス名(メインの開発サービスのみ記載)
     "service": "app",
     // コンテナ内のプロジェクトのルートフォルダを指定
     "workspaceFolder": "/code",

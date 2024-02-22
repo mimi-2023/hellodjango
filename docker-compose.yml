@@ -1,11 +1,28 @@
 version: '3.8'
 services:
   app:
+    container_name: app
     build:
       context: .
       dockerfile: ./.devcontainer/Dockerfile
     tty: true
     volumes:
         - .:/code
+    command: >
+      /bin/sh -c '
+      cd ./hellodjango/ &&
+      gunicorn -w 4 hellodjango.wsgi:application --bind 0.0.0.0:8000
+      '
+    expose:
+        - "8000"
+  
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
     ports:
-        - "8000:8000"
+        - 8080:80
+    depends_on:
+        - app  
+    
